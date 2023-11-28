@@ -19,6 +19,7 @@ int main() {
     // Menú principal
     char opcio;
     do {
+        // Mostrar les opcions del menú
         cout << "\nMenu:\n";
         cout << "1. Entrar objecte a l'inventari\n";
         cout << "2. Eliminar objecte de l'inventari\n";
@@ -28,15 +29,16 @@ int main() {
         cout << "Selecciona una opcio (1-5): ";
         cin >> opcio;
 
+        // Executar l'opció seleccionada
         switch (opcio) {
         case '1':
-            entrar_objecte(inventari, ocupats);
+            entrar_objecte(inventari, ocupats); // Crida a la funció per afegir un objecte a l'inventari
             break;
         case '2':
-            eliminar_objecte(inventari, ocupats);
+            eliminar_objecte(inventari, ocupats); // Crida a la funció per eliminar un objecte de l'inventari
             break;
         case '3':
-            entra_num_objectes(inventari, ocupats);
+            entra_num_objectes(inventari, ocupats); // Crida a la funció per afegir una quantitat determinada d'objectes
             break;
         case '4':
             ocupats = 0; // Buidar l'inventari
@@ -60,8 +62,10 @@ int main() {
     return 0;
 }
 
+// Funció per afegir un objecte a l'inventari
 void entrar_objecte(string inventari[], int& ocupats) {
     if (ocupats < MAX_INVENTARI) {
+        // Demanar i afegir un objecte a l'inventari
         cout << "Entra el nom de l'objecte: ";
         cin >> inventari[ocupats];
         cout << inventari[ocupats] << " ha estat afegit a l'inventari.\n";
@@ -72,8 +76,10 @@ void entrar_objecte(string inventari[], int& ocupats) {
     }
 }
 
+// Funció per eliminar un objecte de l'inventari
 void eliminar_objecte(string inventari[], int& ocupats) {
     if (ocupats > 0) {
+        // Demanar i eliminar un objecte de l'inventari
         cout << "Entra el nom de l'objecte a eliminar: ";
         string nom_objecte;
         cin >> nom_objecte;
@@ -97,7 +103,9 @@ void eliminar_objecte(string inventari[], int& ocupats) {
     }
 }
 
+// Funció per afegir una quantitat determinada d'objectes a l'inventari
 void entra_num_objectes(string inventari[], int& ocupats) {
+    // Demanar quantitat i afegir-la a l'inventari
     int num_objectes;
     cout << "Entra el nombre d'objectes que vols afegir:";
     cin >> num_objectes;
